@@ -156,12 +156,27 @@
     
     <Grid>
         <DockPanel VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <Grid DockPanel.Dock="Top" Height="50" Background="{StaticResource ThemeColor_DarkBlue}">
-                <TextBlock Text="{Binding CurrentLeagueName}" FontFamily="{DynamicResource Header.FontFamily}"
+            <Grid DockPanel.Dock="Top" Height="65" Background="{StaticResource ThemeColor_DarkBlue}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Height="75" Margin="10,0" RenderOptions.BitmapScalingMode="HighQuality">
+                    <Image.Source>
+                        <BitmapImage UriSource="/Resources/iRLM_Logo_02.png"/>
+                    </Image.Source>
+                </Image>
+                
+                <TextBlock Grid.Column="1" Text="{Binding CurrentLeagueName}" FontFamily="{DynamicResource Header.FontFamily}"
                            FontSize="{DynamicResource Header.FontSize}" 
                            Foreground="SeaShell" VerticalAlignment="Center" 
                            HorizontalAlignment="Center" 
                            Margin="15,0"/>
+
+                <StackPanel Grid.ColumnSpan="2" Orientation="Horizontal" Height="Auto" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                    <fa:ImageAwesome Icon="Copyright" Height="12" VerticalAlignment="Center" Foreground="{StaticResource ThemeColor_Back4}"/>
+                    <TextBlock Text="2020 Simon Schulze" FontSize="12" Margin="5,8" VerticalAlignment="Center" Foreground="{StaticResource ThemeColor_Back4}" Padding="0,2,0,0"/>
+                </StackPanel>
             </Grid>
             <DockPanel DockPanel.Dock="Bottom">
                 <Grid DockPanel.Dock="Bottom" Height="30" Background="{StaticResource ThemeColor_Back2}">
@@ -331,6 +346,15 @@
                 <!--<GridSplitter Grid.Column="0" Width="5"/>-->
             </Grid>
             <Grid>
+                <Border Padding="35" Background="{StaticResource ThemeColor_Back4}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Image Height="250" Margin="10,0" RenderOptions.BitmapScalingMode="HighQuality">
+                        <Image.Source>
+                            <BitmapImage UriSource="/Resources/iRLM_Logo_02.png"/>
+                        </Image.Source>
+                    </Image>
+                </Border>
+
+
                 <ContentControl x:Name="MainContent">
                     <ContentControl.Resources>
                         <DataTemplate DataType="{x:Type vmodel:CalendarViewModel}">
